@@ -1,0 +1,161 @@
+
+            /*Daftar konten
+            1. Navbar custom
+            2. LINK
+            3. Sticky navbar
+            4. Media queries
+            =====================*/
+
+            /* ==================
+            Navbar custom
+            ===================== */
+
+            /*rgb(243, 236, 242)*/
+            * {box-sizing: border-box;}
+
+            .navbar {
+              position:relative;
+              overflow: hidden;
+              
+              background-color: white;
+              font-family: Georgia, serif;
+              z-index: 9999;
+              box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
+            }
+
+             /*LINK*/
+
+            /* ==================
+            Untuk custom link saat di hover. dan diklik
+            ===================== */
+            
+            .navbar a {
+              display:inline-block;
+              font-size: 16px;
+              color: rgb(8, 9, 110);
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              margin-left: 70px;
+              text-transform: uppercase;
+              position:relative;
+              
+  
+            }
+
+            .navbar a.active {
+              background-color: white;
+              border-bottom: 2px solid rgb(8, 9, 110);
+              
+            }
+
+            .navbar a.topone{
+              padding-top: 0px;
+            }
+            .navbar a:hover::before{
+              width: 100%;
+            }
+
+             /*WArna teks menjadi gradien*/
+
+            .navbar a:hover{
+              background: -webkit-linear-gradient(#eee, #333);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+            
+             /*Animasi saat di hover diatas teks berupa garis tipis yang mulai dari kiri ke kanan*/
+            .navbar a::before{
+              content:'';
+              display:block;
+              height: 5px;
+              
+              background-color: rgb(68, 0, 156);
+
+              position: relative;
+              top:0;
+              width:0%;
+
+              transition: all ease-in-out 250ms;
+            }
+   
+             /*untuk ocon hamburger saat screen decilkan. NAmun buat display none/tidak muncul*/
+            .navbar .icon {
+            display: none;
+            }
+
+            
+            .show {
+              display: block;
+            }
+
+            /* ==================
+            Sticky navbar
+            ===================== */
+
+           .konten{
+             padding:10px;
+           }
+
+           .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+          }
+
+          .sticky + .konten{
+            padding-top: 10px;
+          } 
+          
+        
+
+            
+          /*Media queries*/
+          /*Perubahan terhadap navabar jika ukuran screen dibawah 1040px*/
+
+           /*icon untuk"hamburger" akanm muncul dan ke
+           kanan ke screen serta menjadi block*/
+          @media screen and (max-width: 1040px) {
+          .navbar a:not(:first-child) {display: none;}
+          .navbar a.icon {
+           float: right;
+           display: block;
+          }
+          }
+           
+           @media screen and (max-width: 1040px) {
+           .navbar.responsive {position: relative;}
+           .navbar.responsive .icon {
+           position: absolute;
+           right: 0;
+           top: 0;
+           display:inline-block;
+            }
+
+             /*TEks link dalam navbar akan ke kiri screen dan bersifat block*/
+           .navbar.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+            
+            }
+            
+             /*Menonaktifkan animasi diatas link*/
+            .navbar a::before{
+              display:none;
+            }
+
+             /*Ketika navabar aktif akan berubah warna*/
+            
+            .navbar a.active {
+              background-color: white;
+              border-bottom: white;
+            }
+
+
+
+            .navbar a.topone{
+              padding-top: 50px;
+            }
+            
+            }
